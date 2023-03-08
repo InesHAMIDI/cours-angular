@@ -1,0 +1,70 @@
+<h2>Formulaire réactif</h2>
+
+<form [formGroup]="personneForm" (ngSubmit)="ajouterPersonne()">
+    <div>
+        <label for="nom">Nom</label>
+        <input type="text" id="nom" formControlName="nom">
+        <span *ngIf="nom.errors">
+            <span *ngIf="nom.errors['required']">
+                Le nom est obligatoire
+            </span>
+            <span *ngIf="nom.errors['pattern']">
+                Le nom doit commencer par une majuscule et contenir entre 2 et 20 caractères
+            </span>
+        </span>
+    </div>
+    <div>
+        <label for="prenom">Prénom</label>
+        <input type="text" id="prenom" formControlName="prenom">
+        <span *ngIf="prenom.errors">
+            <span *ngIf="prenom.errors['required']; else message">
+                Le prénom est obligatoire
+            </span>
+            <ng-template #message>
+                <span>
+                    {{ prenom.errors['message'] }}
+                </span>
+            </ng-template>
+        </span>
+    </div>
+    <div formArrayName="adresses">
+        <h3>Adresses</h3>
+        <button type="button" (click)="ajouterAdresse()">Ajouter un formulaire pour une nouvelle adresse</button>
+        <div *ngFor="let adr of adresses.controls; let i=index">
+            <div [formGroupName]="i">
+                Adresse numéro {{ i + 1 }} : 
+                <input type="text" formControlName="rue" placeholder="rue">
+                <input type="text" formControlName="ville" placeholder="ville">
+                <input type="text" formControlName="codePostal" placeholder="codePostal">
+            </div>
+        </div>
+    </div>
+    <!-- <div formGroupName="adresses">
+        <h3>Adresses</h3>
+        <div>
+            <label for="rue">Rue</label>
+            <input type="text" formControlName="rue" id="rue">
+        </div>
+        <div>
+            <label for="ville">Ville</label>
+            <input type="text" formControlName="ville" id="ville">
+        </div>
+        <div>
+            <label for="codePostal">Code Postal</label>
+            <input type="text" formControlName="codePostal" id="codePostal">
+        </div>
+    </div> -->
+    <button [disabled]="personneForm.invalid" >
+        Ajouter
+    </button>
+</form>
+
+
+
+<h2>Liste de personnes</h2>
+<ul>
+    <li *ngFor="let elt of personnes">
+        {{ elt.prenom }} {{ elt.nom }}
+        <a [routerLink]="['/personne-reactive-details', elt.num]"><i class="fa-regular fa-pen-to-square"></i></a>
+    </li>
+</ul>

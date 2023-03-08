@@ -1,0 +1,10 @@
+.ng-invalid:not(form) {
+    border-left: 5px red solid;
+}
+
+.ng-valid:not(form) {
+    border-left: 5px green solid;
+}
+.btn {
+    color:red;
+}

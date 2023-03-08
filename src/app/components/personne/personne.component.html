@@ -1,0 +1,30 @@
+<h2>Ajouter une nouvelle personne</h2>
+
+<form #monForm="ngForm">
+    <div>
+        <label for="nom">Nom</label>
+        <input type="text" name="nom" id="nom" [(ngModel)]="personne.nom" required minlength="2" maxlength="20" #nom="ngModel">
+        <span [hidden]="nom.valid || nom.pristine">
+            Le nom doit contenir entre 2 et 20 caractères
+        </span>
+      
+    </div>
+    <div>
+        <label for="prenom">Prénom</label>
+        <input type="text" name="prenom" id="prenom" [(ngModel)]="personne.prenom" required  minlength="2" maxlength="20" #prenom="ngModel">
+        <span [hidden]="prenom.valid || prenom.pristine">
+            Le prénom doit contenir entre 2 et 20 caractères
+        </span>
+    </div>
+    <div><button (click)="ajouterPersonne()" [disabled]="monForm.invalid">Ajouter</button></div>
+</form>
+
+<h2>Liste de personnes</h2>
+
+<ul>
+    <li *ngFor="let elt of personnes">
+        {{ elt.prenom }} {{ elt.nom }}
+        <button class="btn"  (click)="supprimerPersonne(elt.num)"><i class="fa-regular fa-trash-can"></i></button>
+        <a [routerLink]="['/personne-details', elt.num]"><i class="fa-regular fa-pen-to-square"></i></a>
+    </li>
+</ul>
