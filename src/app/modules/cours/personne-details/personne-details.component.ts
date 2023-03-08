@@ -34,7 +34,7 @@ export class PersonneDetailsComponent implements OnInit {
     this.ps.updatePersonne(this.personne).subscribe({
       next: () =>  {
         alert("Modification enregistrée dans la base de données")
-        this.router.navigateByUrl("/personne");
+        this.router.navigateByUrl("/cours/personne");
       },
       error: erreur => console.log("Problème de modification :", erreur)
     })

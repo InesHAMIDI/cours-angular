@@ -65,6 +65,6 @@
 <ul>
     <li *ngFor="let elt of personnes">
         {{ elt.prenom }} {{ elt.nom }}
-        <a [routerLink]="['/personne-reactive-details', elt.num]"><i class="fa-regular fa-pen-to-square"></i></a>
+        <a [routerLink]="['/cours/personne-reactive-details', elt.num]"><i class="fa-regular fa-pen-to-square"></i></a>
     </li>
 </ul>

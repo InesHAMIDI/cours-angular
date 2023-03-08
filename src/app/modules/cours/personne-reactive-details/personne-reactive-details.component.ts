@@ -40,7 +40,7 @@ export class PersonneReactiveDetailsComponent {
     this.ps.updatePersonne(this.personneForm.value as Personne).subscribe({
       next: () => {
         alert("Modification enregistrée dans la base de données")
-        this.router.navigateByUrl("/personne-reactive");
+        this.router.navigateByUrl("/cours/personne-reactive");
       },
       error: erreur => console.log("Problème de modification :", erreur)
     })

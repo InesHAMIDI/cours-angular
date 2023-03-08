@@ -25,6 +25,6 @@
     <li *ngFor="let elt of personnes">
         {{ elt.prenom }} {{ elt.nom }}
         <button class="btn"  (click)="supprimerPersonne(elt.num)"><i class="fa-regular fa-trash-can"></i></button>
-        <a [routerLink]="['/personne-details', elt.num]"><i class="fa-regular fa-pen-to-square"></i></a>
+        <a [routerLink]="['/cours/personne-details', elt.num]"><i class="fa-regular fa-pen-to-square"></i></a>
     </li>
 </ul>
