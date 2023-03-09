@@ -1,0 +1,16 @@
+<h2>Connexion</h2>
+
+<form #ConnexionForm="ngForm">
+    <div>
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" 
+            [(ngModel)]="user.username" #username="ngModel" required>
+    </div>
+    <div>
+        <label for="password">Password</label>
+        <input type="text" name="password" id="password" 
+            [(ngModel)]="user.password" #password="ngModel" required>
+    </div>
+    <div><button (click)="connexion()">Connexion</button></div>
+    <div class="alert alert-danger" *ngIf="erreur">{{ erreur }}</div>
+</form>
