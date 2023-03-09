@@ -1,13 +1,20 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Personne } from '../interfaces/personne';
+import { User } from '../interfaces/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PersonneService {
   private url: string = "http://localhost:8080/ws/personnes"
-  constructor(private http:HttpClient) { }
+  private headers: HttpHeaders;
+
+  constructor(private http:HttpClient) { 
+    const user: User = JSON.parse(localStorage.getItem('user') ?? "");
+    const usernameAndPassword = user.username + ":" + user.password;
+    this.headers = new HttpHeaders().set('Authorization', 'Basic ' + btoa(usernameAndPassword))
+   }
 
   getPersonnes() {
     return this.http.get<Personne[]>(this.url);

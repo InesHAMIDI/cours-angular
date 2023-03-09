@@ -1,3 +1,4 @@
+import { HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/interfaces/user';
@@ -12,7 +13,8 @@ export class AuthComponent {
   user: User = {};
   erreur: string | null = null;
 
-  constructor(private us: UserService, private router: Router) { }
+  constructor(private us: UserService, private router: Router) { 
+  }
 
   connexion() {
     this.us.checkUser(this.user).subscribe({
