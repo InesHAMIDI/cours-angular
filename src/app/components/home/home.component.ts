@@ -7,7 +7,11 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
   title = 'cours-angular';
+  formation = { nombreJours: 5, nombreStagiaires: 10, intitule: 'Angular' }
+  tableau = [10, 12, 11]
+  maDate = Date.now()
   direBonjour() {
     alert("bonjour")
   }
+
 }

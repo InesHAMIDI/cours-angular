@@ -7,6 +7,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MenuComponent } from './components/menu/menu.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
+import { GetcharPipe } from './pipes/getchar.pipe';
+import { EvenvaluePipe } from './pipes/evenvalue.pipe';
 
 @NgModule({
   declarations: [
@@ -14,6 +16,8 @@ import { HomeComponent } from './components/home/home.component';
     MenuComponent,
     HeaderComponent,
     HomeComponent,
+    GetcharPipe,
+    EvenvaluePipe,
   ],
   imports: [
     BrowserModule, // = CommonModule + Module qui permet d'exécuter l'appliccation dans le navigateur
