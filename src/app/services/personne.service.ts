@@ -8,13 +8,8 @@ import { User } from '../interfaces/user';
 })
 export class PersonneService {
   private url: string = "http://localhost:8080/ws/personnes"
-  private headers: HttpHeaders;
 
-  constructor(private http:HttpClient) { 
-    const user: User = JSON.parse(localStorage.getItem('user') ?? "");
-    const usernameAndPassword = user.username + ":" + user.password;
-    this.headers = new HttpHeaders().set('Authorization', 'Basic ' + btoa(usernameAndPassword))
-   }
+  constructor(private http:HttpClient) { }
 
   getPersonnes() {
     return this.http.get<Personne[]>(this.url);

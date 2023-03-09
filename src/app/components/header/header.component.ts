@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { User } from 'src/app/interfaces/user';
 
 @Component({
   selector: 'app-header',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   title = 'cours-angular';
+  currentUser = localStorage.getItem('user');
 }
