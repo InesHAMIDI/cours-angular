@@ -17,7 +17,7 @@
           <a class="nav-link" routerLink="/cours/personne-reactive">PersonneReactive</a>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0" *NgIf="nom">
+      <form class="form-inline my-2 my-lg-0"> <!--ngIf="nom"-->
         <button class="btn btn-outline-danger my-2 my-sm-0" (click)="signOut()">Log Out</button>
       </form>
     </div>
